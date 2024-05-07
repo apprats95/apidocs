@@ -1,7 +1,19 @@
-# Authentication APIs
+# IRRC Mobile API Documentation
+
+- [Authentication API](#authentication-apis)
+     - [Login API](#login-api)
+     - [Logout API](#logout-api)
+     - [Change Password API](#change-user-password-api)
+     - [Get Password Policy](#get-user-password-policy-api)
+- [Dashboard API](#authentication-apis)
 
 
-# LOGIN API
+
+
+
+## Authentication APIs
+
+### LOGIN API
 To Login Account and generate token for API validation
 
 ### Prerequisites
