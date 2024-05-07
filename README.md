@@ -190,7 +190,7 @@ There is no Prerequistes for this API
 ### Remarks
 
 
-#  CHANGE USER PASSWORD API
+#  GET USER PASSWORD POLICY API
 
 To get the Password create/update Condition
 
@@ -276,23 +276,21 @@ OR
 
 ### Remarks
 
-# Authentication API
+# Dashboard API
 
-To Login Account and generate token
+# GET PENDING DONATION REQUEST & COUNT API
+
+To get the count of Pending Requests/Donations.
 
 ### Prerequisites
-
-One of the following scopes are required to execute this request:
-
-{{#foreach Request.Scopes}}
-* {{Name}}
-{{/foreach}}
+There is no Prerequistes for this API
 
 ### HTTP Request
 
 ```
-/irrc/login
+/irrc/get_donation_requests_pending_count
 ```
+
 ### Request parameters
 
 In the request URL, provide the following query parameters with values.
@@ -301,26 +299,1402 @@ In the request URL, provide the following query parameters with values.
 |:----------|:-----|:------------|
 
 
-### Optional request headers
+### Request headers
 
 | Name | Value |
 |:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
 
 ### Request body
 
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
+|from_date|Date|From date for filteration of data|
+|to_date|Date|To date for filteration of data|
+
+Above are the Optional Parameters
 
 ### Example
 
 ##### Request
 
-```http
+```
+{
+  "params": {
+    "from_date": "01/05/2024",
+    "to_date": "31/05/2024"
+  }
+}
+
+```
+OR
+
+```
+{
+  "params": {}
+}
 ```
 
 ##### Response
 
-```http
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "from_date": "01/05/2024",
+            "to_date": "31/05/2024",
+            "pending_donations": 0,
+            "pending_requests": 9
+        }
+    }
+}
+```
+
+### Remarks
+
+# GET PENDING DONATION REQUEST & COUNT WITH STATUS FILTERATION API
+
+To get the count of Statuswise Requests/Donations.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_donation_requests_status_count
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|from_date|Date|From date for filteration of data|
+|to_date|Date|To date for filteration of data|
+
+Above are the Optional Parameters
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "from_date": "01/05/2024",
+    "to_date": "31/05/2024"
+  }
+}
+
+```
+OR
+
+```
+{
+  "params": {}
+}
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "from_date": "01/04/2024",
+            "to_date": "31/05/2024",
+            "review_donations": 0,
+            "accept_donations": 2,
+            "review_requests": 22,
+            "in_queue_requests": 4,
+            "ready_to_process_requests": 13,
+            "processing_requests": 9
+        }
+    }
+}
+```
+
+### Remarks
+
+# Request Module API
+# TO GET REQUEST ITEM LIST API
+
+To get the list of Requests (Service & Tangible) based on Created Date in Asc Order.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_request_items_list
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|keyword_search|String|Search keyword for filteration of data|
+|page|Integer|Page number for data paging|
+|limit|Integer|Page Data limit for data paging|
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "keyword_search": "",
+    "page": 2,
+    "limit": 10
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "total_pages": 28,
+            "total_count": 83,
+            "max_records_for_page": 3,
+            "current_page": 2,
+            "count": 3,
+            "requests_list": [
+                {
+                    "request_id": -1,
+                    "request_item_id": 5,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24030003-01",
+                    "submission_date": "18/03/2024",
+                    "responsible_id": -1,
+                    "responsible_name": "",
+                    "is_eligible": false,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 7,
+                    "category_name": "Mens Clothing",
+                    "request_qty": 10,
+                    "processed_qty": 0,
+                    "is_available": false,
+                    "is_allocated": false,
+                    "is_ready_to_process": false,
+                    "item_to_allocate_id": 13,
+                    "item_to_allocate_name": "T-Shirt",
+                    "fulfillment_mode_key": "",
+                    "fulfillment_mode": "",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                },
+                {
+                    "request_id": -1,
+                    "request_item_id": 6,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24030004-01",
+                    "submission_date": "20/03/2024",
+                    "responsible_id": -1,
+                    "responsible_name": "",
+                    "is_eligible": false,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 7,
+                    "category_name": "Mens Clothing",
+                    "request_qty": 10,
+                    "processed_qty": 10,
+                    "is_available": true,
+                    "is_allocated": false,
+                    "is_ready_to_process": false,
+                    "item_to_allocate_id": 13,
+                    "item_to_allocate_name": "T-Shirt",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": "21/03/2024 06:00:00"
+                },
+                {
+                    "request_id": -1,
+                    "request_item_id": 13,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24030004-02",
+                    "submission_date": "28/03/2024",
+                    "responsible_id": -1,
+                    "responsible_name": "",
+                    "is_eligible": false,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": -1,
+                    "category_name": "",
+                    "request_qty": 0,
+                    "processed_qty": 0,
+                    "is_available": false,
+                    "is_allocated": false,
+                    "is_ready_to_process": false,
+                    "item_to_allocate_id": -1,
+                    "item_to_allocate_name": "",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": -1,
+                    "collection_point_name": "",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                }
+            ]
+        }
+    }
+}
+```
+
+### Remarks
+
+# TO GET LIST OF ITEM TANGIBLE REQUEST API
+
+To get the list of Tangible Requests based on Created Date in Ascending Order
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_tangible_request_items_list
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|keyword_search|String|Search keyword for filteration of data|
+|page|Integer|Page number for data paging|
+|limit|Integer|Page Data limit for data paging|
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "keyword_search": "",
+    "page": 2,
+    "limit": 2
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "total_pages": 21,
+            "total_count": 41,
+            "max_records_for_page": 2,
+            "current_page": 1,
+            "count": 2,
+            "requests_list": [
+                {
+                    "request_item_id": 57,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24040031-01",
+                    "submission_date": "16/04/2024",
+                    "responsible_id": 10,
+                    "responsible_name": "Tiara Tan",
+                    "is_eligible": true,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 8,
+                    "category_name": "Safety Clothes",
+                    "request_qty": 1,
+                    "processed_qty": 1,
+                    "is_available": true,
+                    "is_allocated": false,
+                    "is_ready_to_process": true,
+                    "item_to_allocate_id": 21,
+                    "item_to_allocate_name": "Safety Hat",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                },
+                {
+                    "request_item_id": 58,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24040031-02",
+                    "submission_date": "16/04/2024",
+                    "responsible_id": 10,
+                    "responsible_name": "Tiara Tan",
+                    "is_eligible": true,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 8,
+                    "category_name": "Safety Clothes",
+                    "request_qty": 1,
+                    "processed_qty": 1,
+                    "is_available": true,
+                    "is_allocated": false,
+                    "is_ready_to_process": true,
+                    "item_to_allocate_id": 7,
+                    "item_to_allocate_name": "Safety Shoes",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                }
+            ]
+        }
+    }
+}
+```
+
+### Remarks
+
+
+# TO GET LIST OF SERVICE REQUEST API
+
+To get the list of Service Requests based on Created Date in Ascending Order
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_service_request_items_list
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|keyword_search|String|Search keyword for filteration of data|
+|page|Integer|Page number for data paging|
+|limit|Integer|Page Data limit for data paging|
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "keyword_search": "",
+    "page": 2,
+    "limit": 2
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "total_pages": 21,
+            "total_count": 41,
+            "max_records_for_page": 2,
+            "current_page": 1,
+            "count": 2,
+            "requests_list": [
+                {
+                    "request_item_id": 57,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24040031-01",
+                    "submission_date": "16/04/2024",
+                    "responsible_id": 10,
+                    "responsible_name": "Tiara Tan",
+                    "is_eligible": true,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 8,
+                    "category_name": "Safety Clothes",
+                    "request_qty": 1,
+                    "processed_qty": 1,
+                    "is_available": true,
+                    "is_allocated": false,
+                    "is_ready_to_process": true,
+                    "item_to_allocate_id": 21,
+                    "item_to_allocate_name": "Safety Hat",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                },
+                {
+                    "request_item_id": 58,
+                    "partner_id": -1,
+                    "partner_name": "",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "request_ref": "RQ24040031-02",
+                    "submission_date": "16/04/2024",
+                    "responsible_id": 10,
+                    "responsible_name": "Tiara Tan",
+                    "is_eligible": true,
+                    "reviewers_remarks": "",
+                    "beneficiary_remarks": "",
+                    "category_id": 8,
+                    "category_name": "Safety Clothes",
+                    "request_qty": 1,
+                    "processed_qty": 1,
+                    "is_available": true,
+                    "is_allocated": false,
+                    "is_ready_to_process": true,
+                    "item_to_allocate_id": 7,
+                    "item_to_allocate_name": "Safety Shoes",
+                    "fulfillment_mode_key": "collection_point",
+                    "fulfillment_mode": "Collection Point",
+                    "collection_point_id": 3,
+                    "collection_point_name": "InspIRRe Store",
+                    "collection_point_details": "",
+                    "collection_appt": ""
+                }
+            ]
+        }
+    }
+}
+```
+
+### Remarks
+
+
+# TO REJECT SPECIFIC REQUEST ITEM API
+
+To Reject Specific Request Item
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/reject_request_items
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|reviewers_remarks|String|Reviewers rejection remark|
+Optional Parameter
+|request_id|String|Request unique id|
+|request_item_id|Integer|Request item unique id for rejection |
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "request_item_id": 93,
+    "reviewers_remarks": "test rejection"
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item Rejected Successfully!"
+        },
+        "data": {}
+    }
+}
+
+```
+
+### Remarks
+
+
+# TO CANCEL SPECIFIC REQUEST ITEM API
+
+To Cancel Specific Request Item
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/cancel_request_items
+```
+
+### Request parameters
+
+In the request URL, provide the following query parameters with values.
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|cancel_reason|String|Cancellation  remark|
+Optional Parameter
+|request_id|String|Request unique id|
+|request_item_id|Integer|Request item unique id for rejection |
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "request_item_id": 93,
+    "cancel_reason": "test cancellation"
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item Cancelled Successfully!"
+        },
+        "data": {}
+    }
+}
+
+```
+
+### Remarks
+
+
+# TO GET REQUEST ITEM AVAILABLILTY API
+
+To Get Request Item Availability
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_requests_availability_list
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+Optional Parameter
+|request_id|String|Request unique id for availability|
+|request_item_id|Integer|Request item unique id for Item availability |
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "request_id": 54,
+    "request_item_id": 93
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "availability_info": [
+                {
+                    "location_id": 18,
+                    "location_name": "Stock",
+                    "product_id": 37,
+                    "product_name": "Umbrella",
+                    "available_quantity": 1.0
+                },
+                {
+                    "location_id": 18,
+                    "location_name": "Stock",
+                    "product_id": 37,
+                    "product_name": "Umbrella",
+                    "available_quantity": 1.0
+                },
+                {
+                    "location_id": 18,
+                    "location_name": "Stock",
+                    "product_id": 37,
+                    "product_name": "Umbrella",
+                    "available_quantity": 1.0
+                },
+                {
+                    "location_id": 24,
+                    "location_name": "Stock",
+                    "product_id": 37,
+                    "product_name": "Umbrella",
+                    "available_quantity": -1.0
+                }
+            ]
+        }
+    }
+}
+
+```
+
+### Remarks
+
+
+
+
+# TO GET REQUEST ITEM ELIGIBILITY API
+
+To Get Request Item Eligibility Details.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_request_items_eligibility_list
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "request_item_id": 93
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "eligibility_criteria_info": [
+                {
+                    "request_item_id": 108,
+                    "eligibility_conditions": "",
+                    "eligibility_criteria_line": []
+                }
+            ]
+        }
+    }
+}
+```
+
+### Remarks
+
+
+
+# TO UPDATE REQUEST BENEFICIARY API
+
+To Update Request Beneficiary Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/update_requests_beneficiary_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description | Type |
+|:----------|:-----|:------------|:-----|
+|name|String| Name of the beneficiary|
+|phone|String| Phone number of the beneficiary|
+|mobile|String| Mobile number of the beneficiary|
+|email|String| Email of the beneficiary|
+|street|String| Street of the beneficiary|
+|street2|String| Street Line 2 of the beneficiary|
+|city|String| City of the beneficiary|
+|zip|String| Zip code of the beneficiary|
+|country_id|String| Country unique id of the beneficiary|
+|title_id|String| Title unique id of the beneficiary|
+|tag_ids|Array|Array fo Tag unique ids|
+|nationality_id|String| Name of the beneficiary|
+|dob|String| Date of birth of the beneficiary|
+|marital_status_key|String| Marital Status of the beneficiary|
+|highest_qualification_key|String| Highest qualification of the beneficiary|
+|languages_known_line|Array| Array of languages know|
+
+Optional Parameter
+|request_id|String|Request unique id for beneficiary|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "request_id": 12,
+    "name": "test user",
+    "phone": "12345678",
+    "mobile": "87654321",
+    "email": "admin@example.com",
+    "street": "",
+    "street2": "",
+    "city": "SG",
+    "zip": "12345",
+    "country_id": 197,
+    "title_id": 2,
+    "tag_ids": [1, 4],
+    "nationality_id": 197,
+    "dob": "22/04/2000",
+    "marital_status_key": "married",
+    "highest_qualification_key": "degree",
+    "languages_known_line": [
+        {"id": 3, "language_id": 2, "spoken_key": "advance", "written_key": "intermediate"},
+        {"language_id": 4, "spoken_key": "basic", "written_key": "basic"}
+    ]
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Beneficiary Details updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+
+# TO UPDATE REQUEST ITEM DATA API
+
+To Update Request Items Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/update_request_items_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {
+        "request_id": 51,
+        "request_item_id": 93,
+        "item_to_allocate_id": 5,
+        "tag_ids": [
+            1,
+            3
+        ],
+        "processed_qty": 2,
+        "fulfillment_mode_key": "collection_point",
+        "reviewers_remarks": "test review remarks",
+        "is_eligible": false,
+        "collection_appt": "17/05/2024 11:35:59",
+        "collection_point_id": 2
+    }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+
+
+# Donation API
+# TO GET LIST OF DONATIONS API
+
+To get the list of Donations (Monetary & Service & Tangible) based on Created Date in Asc Order.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_donation_items_list
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|keyword_search|String|Search keyword for filteration of data|
+|page|Integer|Page number for data paging|
+|limit|Integer|Page Data limit for data paging|
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "keyword_search": "",
+    "page": 2,
+    "limit": 2
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "total_pages": 2,
+            "total_count": 3,
+            "max_records_for_page": 2,
+            "current_page": 2,
+            "count": 1,
+            "donations_list": [
+                {
+                    "donation_id": -1,
+                    "donation_item_id": 68,
+                    "partner_id": 8,
+                    "partner_name": "ABC Pte Ltd",
+                    "partner_phone": "",
+                    "partner_mobile": "",
+                    "partner_email": "",
+                    "partner_street": "",
+                    "partner_street2": "",
+                    "partner_city": "",
+                    "partner_state_id": "",
+                    "partner_zip": "",
+                    "partner_country_id": "",
+                    "donations_ref": "DI24050008-01",
+                    "submission_date": "07/05/2024",
+                    "responsible_id": 26,
+                    "responsible_name": "John Doe",
+                    "reviewers_remarks": "",
+                    "donor_remarks": "",
+                    "category_id": 7,
+                    "category_name": "Mens Clothing",
+                    "product_id": 13,
+                    "product_name": "T-Shirt",
+                    "donation_qty": 3,
+                    "logistic_mode_key": "drop_off",
+                    "logistic_mode": "Drop-Off Center",
+                    "collection_point_id": 2,
+                    "collection_point_name": "Tampines Grande"
+                }
+            ]
+        }
+    }
+}
+```
+### Remarks
+
+
+
+
+# TO REJECT SPECIFIC DONATION API
+
+To Reject Specific Donation Item
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/reject_donation_items
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|reviewers_remarks|String|Reviewers rejection remark|
+Optional Parameter
+|donation_id|String|Request unique id|
+|donation_item_id|Integer|Request item unique id for rejection |
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "donation_item_id": 93,
+    "reviewers_remarks": "test donation rejection"
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Donation Item Rejected Successfully!"
+        },
+        "data": {}
+    }
+}
+
+```
+
+### Remarks
+
+
+
+
+# TO  CANCEL SPECIFIC DONATION API
+
+To Cancel Specific Donation Item
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/cancel_donation_items
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|cancel_reason|String|Cancel reason for donation|
+Optional Parameter
+|donation_id|String|Request unique id|
+|donation_item_id|Integer|Request item unique id for rejection |
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "donation_item_id": 93,
+    "cancel_reason": "test donation cancel"
+  }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Donation Item Cancelled Successfully"
+        },
+        "data": {}
+    }
+}
+
+```
+
+### Remarks
+
+
+
+
+# TO UPDATE DONATION ITEM DATA API
+
+To Update Donation Items Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/update_donation_items_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|product_id|Integer|Product unique id for donation|
+|donation_qty|Integer|Donation quantity for donation|
+|reviewers_remarks|String|Reviewers remarks for donation|
+|logistic_mode_key|String|Logistic mode key for donation|
+|collection_point_id|Integer|Collection point unique Id for donation|
+|tag_ids|Array|Cancel reason for donation|
+Optional Parameter
+|donation_id|String|Request unique id|
+|donation_item_id|Integer|Request item unique id for rejection |
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {
+        "donation_id": 23,
+        "donation_item_id": 58,
+        "product_id": 5,
+        "tag_ids": [
+            1,
+            2
+        ],
+        "donation_qty": 2,
+        "reviewers_remarks": "test review remarks",
+        "logistic_mode_key": "drop_off",
+        "collection_point_id": 2
+    }
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Donation Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+
 ```
 
 ### Remarks
