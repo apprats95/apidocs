@@ -5,7 +5,26 @@
      - [Logout API](#logout-api)
      - [Change Password API](#change-user-password-api)
      - [Get Password Policy](#get-user-password-policy-api)
-- [Dashboard API](#authentication-apis)
+- [Dashboard API](#dashboard-api)
+     - [Pending Donation API](#get-pending-donation-request--count-api)
+     - [Pending Donation based on status API](#get-pending-donation-request--count-with-status-filteration-api)
+- [Request Module API](#request-module-api)
+     - [Tangible Item List API](#to-get-list-of-item-tangible-request-api)
+     - [List Of Service request API](#to-get-list-of-service-request-api)
+     - [Reject Specific Item API](#to-reject-specific-request-item-api)
+     - [Cancel Specific Item API](#to-cancel-specific-request-item-api)
+     - [Item Availability API](#to-get-request-item-availablilty-api)
+     - [Item Eligibility API](#to-get-request-item-eligibility-api)
+     - [Rquest Beneficiary API](#to-update-request-beneficiary-api)
+     - [Update Item Data API](#to-update-request-item-data-api)
+- [API Standard Exceptions](#authentication-apis)     
+- [Data Encryption](#authentication-apis)
+
+
+
+
+
+
 
 
 
