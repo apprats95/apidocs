@@ -1426,65 +1426,9 @@ There is no Prerequistes for this API
 
 ### Remarks
 
+### CONTACT PERSON API 
 
-### TO UPDATE REQUEST ITEM DATA API
-
-To Update Request Items Data.
-
-### Prerequisites
-There is no Prerequistes for this API
-
-### HTTP Request
-
-```
-/irrc/get_contact_person_languages
-```
-
-### Request headers
-
-| Name | Value |
-|:-----|:------|
-|Content-Type|application/json|
-|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
-
-### Request body
-
-| Parameter | Type | Description |
-|:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
-
-
-### Example
-
-##### Request
-
-```
-{
-    "params": {}
-}
-
-```
-
-##### Response
-
-```
-{
-    "jsonrpc": "2.0",
-    "id": null,
-    "result": {
-        "meta": {
-            "status": true,
-            "message": "Request Item updated Successfully!"
-        },
-        "data": {}
-    }
-}
-```
-
-### Remarks
-
-
-### TO UPDATE PERSON LANGUAGE DATA API
+### TO GET PERSON LANGUAGES API
 
 Get Contact Person Language Values.
 
@@ -1531,27 +1475,49 @@ There is no Prerequistes for this API
     "result": {
         "meta": {
             "status": true,
-            "message": "Request Item updated Successfully!"
+            "message": ""
         },
-        "data": {}
+        "data": {
+            "languages_list": [
+                {
+                    "id": 1,
+                    "name": "English"
+                },
+                {
+                    "id": 2,
+                    "name": "Malay"
+                },
+                {
+                    "id": 3,
+                    "name": "Hindi"
+                },
+                {
+                    "id": 4,
+                    "name": "Tamil"
+                },
+                {
+                    "id": 5,
+                    "name": "Chinese"
+                }
+            ]
+        }
     }
 }
 ```
 
 ### Remarks
 
+### TO GET PERSON COUNTRY API
 
-### TO UPDATE REQUEST ITEM DATA API
-
-To Update Request Items Data.
+To Get Contact Person Country / Nationality Values.
 
 ### Prerequisites
-Get Request Beneficiary Details.
+There is no Prerequistes for this API
 
 ### HTTP Request
 
 ```
-/irrc/get_requests_beneficiary_data
+/irrc/get_contact_person_country_nationality
 ```
 
 ### Request headers
@@ -1565,8 +1531,8 @@ Get Request Beneficiary Details.
 
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
 
+Body is passed empty as shown below.
 
 ### Example
 
@@ -1588,9 +1554,20 @@ Get Request Beneficiary Details.
     "result": {
         "meta": {
             "status": true,
-            "message": "Request Item updated Successfully!"
+            "message": ""
         },
-        "data": {}
+        "data": {
+            "country_list": [
+                {
+                    "id": 3,
+                    "name": "Afghanistan"
+                },
+                {
+                    "id": 6,
+                    "name": "Albania"
+                }
+            ]
+        }
     }
 }
 ```
@@ -1598,12 +1575,13 @@ Get Request Beneficiary Details.
 ### Remarks
 
 
-### TO UPDATE REQUEST ITEM DATA API
 
-To Update Request Items Data.
+### TO GET CONTACT PERSON TITLE API
+
+To Get Contact Person Title Values.
 
 ### Prerequisites
-There is no Prerequistes for this API
+There is no Prerequisites for this API
 
 ### HTTP Request
 
@@ -1622,7 +1600,8 @@ There is no Prerequistes for this API
 
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
+
+Body is passed Empty as shown below.
 
 
 ### Example
@@ -1645,77 +1624,46 @@ There is no Prerequistes for this API
     "result": {
         "meta": {
             "status": true,
-            "message": "Request Item updated Successfully!"
+            "message": ""
         },
-        "data": {}
+        "data": {
+            "title_list": [
+                {
+                    "id": 4,
+                    "name": "Doctor"
+                },
+                {
+                    "id": 1,
+                    "name": "Madam"
+                },
+                {
+                    "id": 2,
+                    "name": "Miss"
+                },
+                {
+                    "id": 3,
+                    "name": "Mister"
+                },
+                {
+                    "id": 6,
+                    "name": "Mr"
+                },
+                {
+                    "id": 5,
+                    "name": "Professor"
+                }
+            ]
+        }
     }
 }
 ```
 
 ### Remarks
-
-
-### TO GET DONAR DATA API
-
-Get Donations Donor Details.
-
-### Prerequisites
-There is no Prerequistes for this API
-
-### HTTP Request
-
-```
-/irrc/get_donations_donor_data
-```
-
-### Request headers
-
-| Name | Value |
-|:-----|:------|
-|Content-Type|application/json|
-|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
-
-### Request body
-
-| Parameter | Type | Description |
-|:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
-
-
-### Example
-
-##### Request
-
-```
-{
-    "params": {}
-}
-
-```
-
-##### Response
-
-```
-{
-    "jsonrpc": "2.0",
-    "id": null,
-    "result": {
-        "meta": {
-            "status": true,
-            "message": "Request Item updated Successfully!"
-        },
-        "data": {}
-    }
-}
-```
-
-### Remarks
-
 
 
 ### TO UPDATE REQUEST ITEM DATA API
 
-To Update Request Items Data.
+To Get Contact Person Tag Values.
 
 ### Prerequisites
 There is no Prerequistes for this API
@@ -1723,7 +1671,7 @@ There is no Prerequistes for this API
 ### HTTP Request
 
 ```
-/irrc/get_contact_person_title
+/irrc/get_contact_person_tags
 ```
 
 ### Request headers
@@ -1737,7 +1685,8 @@ There is no Prerequistes for this API
 
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
+
+Body is passed empty as shown below.
 
 
 ### Example
@@ -1760,9 +1709,28 @@ There is no Prerequistes for this API
     "result": {
         "meta": {
             "status": true,
-            "message": "Request Item updated Successfully!"
+            "message": ""
         },
-        "data": {}
+        "data": {
+            "tags_list": [
+                {
+                    "id": 2,
+                    "name": "Accounts"
+                },
+                {
+                    "id": 1,
+                    "name": "Finance"
+                },
+                {
+                    "id": 3,
+                    "name": "Sales"
+                },
+                {
+                    "id": 4,
+                    "name": "Service Provider"
+                }
+            ]
+        }
     }
 }
 ```
@@ -1770,7 +1738,7 @@ There is no Prerequistes for this API
 ### Remarks
 
 
-### TO UPDATE CONTACT DATA API
+### TO UPDATE CONTACT PERSON DATA API
 
 Update Contact Person Details.
 
@@ -1803,7 +1771,28 @@ There is no Prerequistes for this API
 
 ```
 {
-    "params": {}
+  "params": {
+    "contact_id": 133,
+    "name": "test userrrr",
+    "phone": "12345678",
+    "mobile": "87654321",
+    "email": "admin@example.com",
+    "street": "",
+    "street2": "",
+    "city": "SG",
+    "zip": "12345",
+    "country_id": 197,
+    "title_id": 2,
+    "tag_ids": [1, 4],
+    "nationality_id": 197,
+    "dob": "22/04/2000",
+    "marital_status_key": "married",
+    "highest_qualification_key": "degree",
+    "languages_known_line": [
+        {"id": 3, "language_id": 2, "spoken_key": "advance", "written_key": "intermediate"},
+        {"language_id": 4, "spoken_key": "basic", "written_key": "basic"}
+    ]
+  }
 }
 
 ```
@@ -1817,7 +1806,7 @@ There is no Prerequistes for this API
     "result": {
         "meta": {
             "status": true,
-            "message": "Request Item updated Successfully!"
+            "message": "Contact Person Details updated Successfully!"
         },
         "data": {}
     }
