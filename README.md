@@ -1,22 +1,27 @@
 # IRRC Mobile API Documentation
 
 - [Authentication API](#authentication-apis)
-     - [Login API](#login-api)
-     - [Logout API](#logout-api)
-     - [Change Password API](#change-user-password-api)
+     - [Login](#login-api)
+     - [Logout](#logout-api)
+     - [Change Password](#change-user-password-api)
      - [Get Password Policy](#get-user-password-policy-api)
-- [Dashboard API](#dashboard-api)
-     - [Pending Donation API](#get-pending-donation-request--count-api)
-     - [Pending Donation based on status API](#get-pending-donation-request--count-with-status-filteration-api)
+- [Dashboard](#dashboard-api)
+     - [Pending Donation](#get-pending-donation-request--count-api)
+     - [Pending Donation based on status](#get-pending-donation-request--count-with-status-filteration-api)
 - [Request Module API](#request-module-api)
-     - [Tangible Item List API](#to-get-list-of-item-tangible-request-api)
-     - [List Of Service request API](#to-get-list-of-service-request-api)
-     - [Reject Specific Item API](#to-reject-specific-request-item-api)
-     - [Cancel Specific Item API](#to-cancel-specific-request-item-api)
-     - [Item Availability API](#to-get-request-item-availablilty-api)
-     - [Item Eligibility API](#to-get-request-item-eligibility-api)
-     - [Rquest Beneficiary API](#to-update-request-beneficiary-api)
-     - [Update Item Data API](#to-update-request-item-data-api)
+     - [Tangible Item List](#to-get-list-of-item-tangible-request-api)
+     - [List Of Service request](#to-get-list-of-service-request-api)
+     - [Reject Specific Item](#to-reject-specific-request-item-api)
+     - [Cancel Specific Item](#to-cancel-specific-request-item-api)
+     - [Item Availability](#to-get-request-item-availablilty-api)
+     - [Item Eligibility](#to-get-request-item-eligibility-api)
+     - [Rquest Beneficiary](#to-update-request-beneficiary-api)
+     - [Update Item Data](#to-update-request-item-data-api)
+- [Donation Module API](#donation-api)
+     - [List Of donation](#to-get-list-of-donations-api)
+     - [Reject Specific donation](#to-reject-specific-donation-api)
+     - [Cancel Specific donation](#to--cancel-specific-donation-api)
+     - [Update donation item data](#to-update-donation-item-data-api)
 - [API Standard Exceptions](#authentication-apis)     
 - [Data Encryption](#authentication-apis)
 
@@ -106,7 +111,7 @@ There is no Prerequistes for this API
 
 ### Remarks
 
-#  LOGOUT API
+### LOGOUT API
 
 To Logout Account and clear token.
 
@@ -221,7 +226,7 @@ There is no Prerequistes for this API
 ### Remarks
 
 
-#  GET USER PASSWORD POLICY API
+###  GET USER PASSWORD POLICY API
 
 To get the Password create/update Condition
 
@@ -307,9 +312,9 @@ OR
 
 ### Remarks
 
-# Dashboard API
+### Dashboard API
 
-# GET PENDING DONATION REQUEST & COUNT API
+### GET PENDING DONATION REQUEST & COUNT API
 
 To get the count of Pending Requests/Donations.
 
@@ -471,8 +476,8 @@ OR
 
 ### Remarks
 
-# Request Module API
-# TO GET REQUEST ITEM LIST API
+### Request Module API
+### TO GET REQUEST ITEM LIST API
 
 To get the list of Requests (Service & Tangible) based on Created Date in Asc Order.
 
@@ -802,7 +807,7 @@ In the request URL, provide the following query parameters with values.
 ### Remarks
 
 
-# TO GET LIST OF SERVICE REQUEST API
+### TO GET LIST OF SERVICE REQUEST API
 
 To get the list of Service Requests based on Created Date in Ascending Order
 
@@ -948,7 +953,7 @@ In the request URL, provide the following query parameters with values.
 ### Remarks
 
 
-# TO REJECT SPECIFIC REQUEST ITEM API
+### TO REJECT SPECIFIC REQUEST ITEM API
 
 To Reject Specific Request Item
 
@@ -1016,7 +1021,7 @@ Optional Parameter
 ### Remarks
 
 
-# TO CANCEL SPECIFIC REQUEST ITEM API
+### TO CANCEL SPECIFIC REQUEST ITEM API
 
 To Cancel Specific Request Item
 
@@ -1084,7 +1089,7 @@ Optional Parameter
 ### Remarks
 
 
-# TO GET REQUEST ITEM AVAILABLILTY API
+### TO GET REQUEST ITEM AVAILABLILTY API
 
 To Get Request Item Availability
 
@@ -1180,7 +1185,7 @@ Optional Parameter
 
 
 
-# TO GET REQUEST ITEM ELIGIBILITY API
+### TO GET REQUEST ITEM ELIGIBILITY API
 
 To Get Request Item Eligibility Details.
 
@@ -1248,7 +1253,7 @@ There is no Prerequistes for this API
 
 
 
-# TO UPDATE REQUEST BENEFICIARY API
+### TO UPDATE REQUEST BENEFICIARY API
 
 To Update Request Beneficiary Data.
 
@@ -1346,7 +1351,7 @@ Optional Parameter
 
 
 
-# TO UPDATE REQUEST ITEM DATA API
+### TO UPDATE REQUEST ITEM DATA API
 
 To Update Request Items Data.
 
@@ -1420,7 +1425,7 @@ There is no Prerequistes for this API
 
 
 # Donation API
-# TO GET LIST OF DONATIONS API
+### TO GET LIST OF DONATIONS API
 
 To get the list of Donations (Monetary & Service & Tangible) based on Created Date in Asc Order.
 
@@ -1521,7 +1526,7 @@ There is no Prerequistes for this API
 
 
 
-# TO REJECT SPECIFIC DONATION API
+### TO REJECT SPECIFIC DONATION API
 
 To Reject Specific Donation Item
 
@@ -1653,7 +1658,7 @@ Optional Parameter
 
 
 
-# TO UPDATE DONATION ITEM DATA API
+### TO UPDATE DONATION ITEM DATA API
 
 To Update Donation Items Data.
 
