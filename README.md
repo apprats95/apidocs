@@ -1435,7 +1435,18 @@ There is no Prerequistes for this API
 
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
-|request_item_id|Integer|Request item unique id for Item eligibility|
+|item_to_allocate_id|Integer|Item allocatin unique id for Item|
+|tag_ids|Array|List of Person tags id used|
+|processed_qty|Integer|Processed Quantity|
+|fulfillment_mode_key|Integer|Fulfillment Mode key used for item|
+|reviewers_remarks|Integer|Reviewers remarks for Item|
+|is_eligible|Boolean|Item eligibility|
+|collection_appt|DATETIME|Collection Date for item|
+|collection_point_id|Integer|Collection point unique id for Collection identification|
+
+|Optional Parameters|
+|request_id|Integer|Request unique id for Item eligibility|
+|collection_point_id|Integer|Request item unique id for Item eligibility|
 
 
 ### Example
