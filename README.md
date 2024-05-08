@@ -22,11 +22,11 @@
      - [Reject Specific donation](#to-reject-specific-donation-api)
      - [Cancel Specific donation](#to--cancel-specific-donation-api)
      - [Update donation item data](#to-update-donation-item-data-api)
-- [API Standard Exceptions](#authentication-apis)     
-- [Data Encryption](#authentication-apis)
-
-
-
+- [API Standard Exceptions](#authentication-api)     
+- [Data Encryption](#data-encryption)
+     - [Encryption](#encryption-of-data)
+     - [Decryption](#decryption-of-data)
+          
 
 
 
@@ -1734,3 +1734,50 @@ Optional Parameter
 ```
 
 ### Remarks
+
+
+
+# Data Encryption
+
+### Encryption of Data
+
+Package : https://pub.dev/packages/encrypt
+
+```
+
+// Package Imports
+import 'package:encrypt/encrypt.dart' as ds;
+import "dart:convert";
+
+ // Shared Private Key for Encryption
+ final key = ds.Key.fromBase64('YOUR BASE 64 STRING HERE');
+
+ // Random Unqiue Key for Encryption
+ final iv = ds.IV.fromSecureRandom(16);
+
+ // Encryption process
+ final encrypter = ds.Encrypter(ds.AES(key, mode: ds.AESMode.cbc));
+ final encrypted = encrypter.encrypt('YOUR PLAIN TEXT', iv: iv);
+
+ // Encrypted data
+ String encryptedData = encrypted.base64;
+
+
+```
+### Decryption of Data
+
+```
+ // Shared Private Key for Decryption
+ final key = ds.Key.fromBase64('YOUR BASE 64 STRING HERE'');
+
+ // Random Unqiue Key for Decryption
+ final iv = ds.IV.fromBase64('KEY PASSED DURING ENCRYPTION');
+
+ // Decryption process
+ final encrypter = ds.Encrypter(ds.AES(key, mode: ds.AESMode.cbc));
+
+ // Decrypted data
+ String decryptedData = encrypter.decrypt64('YOUR ENCRYPTED DATA', iv: iv);
+      
+
+```
