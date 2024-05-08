@@ -1,9 +1,10 @@
 # IRRC Mobile API Documentation
 
 - [Authentication API](#authentication-apis)
-     - [Login](#login-api)
+     - [Auth Encrypted API](#auth-encrypted-api)
+       - [Login](#login-api)
+       - [Change Password](#change-user-password-api)
      - [Logout](#logout-api)
-     - [Change Password](#change-user-password-api)
      - [Get Password Policy](#get-user-password-policy-api)
 - [Dashboard](#dashboard-api)
      - [Pending Donation](#get-pending-donation-request--count-api)
@@ -17,11 +18,14 @@
      - [Item Eligibility](#to-get-request-item-eligibility-api)
      - [Rquest Beneficiary](#to-update-request-beneficiary-api)
      - [Update Item Data](#to-update-request-item-data-api)
-- [Contact Person API](#donation-api)
-     - [List Of donation](#to-get-list-of-donations-api)
-     - [Reject Specific donation](#to-reject-specific-donation-api)
-     - [Cancel Specific donation](#to--cancel-specific-donation-api)
-     - [Update donation item data](#to-update-donation-item-data-api)
+- [Contact Person API](#contact-person-api)
+     - [List of Person Title](#to-get-contact-person-title-api)
+     - [List of Country](#get-person-country-api)
+     - [List of Languages](#to-get-person-languages-api)
+     - [Update Contact Person](#to-update-contact-person-data-api)
+     - [Encrypted API](#encrypted-api)
+          - [Beneficiary Details](#to-get-contact-person-title-api)
+          - [Donor Details](#to-get-contact-person-title-api)
 - [Donation Module API](#donation-api)
      - [List Of donation](#to-get-list-of-donations-api)
      - [Reject Specific donation](#to-reject-specific-donation-api)
@@ -31,6 +35,7 @@
 - [Data Encryption](#data-encryption)
      - [Encryption](#encryption-of-data)
      - [Decryption](#decryption-of-data)
+     
           
 
 
@@ -38,9 +43,10 @@
 
 
 
-
-
 ## Authentication APIs
+
+
+### Auth Encrypted API
 
 ### LOGIN API
 To Login Account and generate token for API validation
@@ -80,8 +86,33 @@ There is no Prerequistes for this API
   }
 }
 ```
+##### Encrypted Request
+
+```
+{
+  "params": {
+    "encrypted_data": [
+      "YOUR ENCRYTED BASE 64 DATA",
+      "16 bit IV Key generated during encryption"
+    ]
+  }
+}
+```
 
 ##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": ["YOUR ENCRYTED BASE 64 DATA",
+        "16 bit IV Key generated during encryption"
+    ]
+}
+
+```
+
+##### Decrypted Response
 
 ```
 {
@@ -115,6 +146,90 @@ There is no Prerequistes for this API
 ```
 
 ### Remarks
+
+[The above encryption & decryption of data is implemented using AES encryption technique.](#data-encryption) 
+
+#  CHANGE USER PASSWORD API
+
+To change Logged-in User's Password
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/change_user_password
+```
+
+### Request headers
+
+|    Name    |       Value     |
+|:-----------|:----------------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type |           Description     |
+|:----------|:-----|:--------------------------|
+|old_password|String|Existing password|
+|new_password|String|New password|
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "old_password": "admin@1234",
+    "new_password": "1234Admin"
+  }
+}
+```
+
+##### Encrypted Request
+
+```
+{
+  "params": {
+    "encrypted_data": [
+      "YOUR ENCRYTED BASE 64 DATA",
+      "16 bit IV Key generated during encryption"
+    ]
+  }
+}
+```
+
+##### Response
+
+```
+
+
+```
+
+
+##### Decrypted Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Password Updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+[The above encryption & decryption of data is implemented using AES encryption technique.](#data-encryption) 
 
 ### LOGOUT API
 
@@ -162,66 +277,6 @@ Pass Empty Json : {}
         "meta": {
             "status": true,
             "message": "Logout Successfully!"
-        },
-        "data": {}
-    }
-}
-```
-
-### Remarks
-
-
-#  CHANGE USER PASSWORD API
-
-To change Logged-in User's Password
-
-### Prerequisites
-There is no Prerequistes for this API
-
-### HTTP Request
-
-```
-/irrc/change_user_password
-```
-
-### Request headers
-
-|    Name    |       Value     |
-|:-----------|:----------------|
-|Content-Type|application/json|
-|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
-
-### Request body
-
-| Parameter | Type |           Description     |
-|:----------|:-----|:--------------------------|
-|old_password|String|Existing password|
-|new_password|String|New password|
-
-
-### Example
-
-##### Request
-
-```
-{
-  "params": {
-    "old_password": "admin@1234",
-    "new_password": "1234Admin"
-  }
-}
-```
-
-##### Response
-
-```
-{
-    "jsonrpc": "2.0",
-    "id": null,
-    "result": {
-        "meta": {
-            "status": true,
-            "message": "Password Updated Successfully!"
         },
         "data": {}
     }
@@ -1815,9 +1870,175 @@ There is no Prerequistes for this API
 
 ### Remarks
 
+### ENCRYPTED API REQUESTS
+
+### TO GET BENEFICIARY DETAILS API
+
+Get Request Beneficiary Details.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_requests_beneficiary_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_id|String|Request unique id for beneficiary|
+OR
+|request_item_id|Integer|Request item unique id for Item eligibility|
 
 
+### Example
 
+##### Request
+
+```
+{
+  "params": {
+    "request_id": 93,
+    "request_item_id": 93
+  }
+}
+
+```
+
+##### Encrypted Request
+
+```
+{
+  "params": {
+    "encrypted_data": [
+      "YOUR ENCRYTED BASE 64 DATA",
+      "16 bit IV Key generated during encryption"
+    ]
+  }
+}
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": ["YOUR ENCRYTED BASE 64 DATA",
+        "16 bit IV Key generated during encryption"
+    ]
+}
+```
+
+#### Decrypted Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": ["YOUR ENCRYTED BASE 64 DATA",
+        "16 bit IV Key generated during encryption"
+    ]
+}
+```
+
+### Remarks
+
+[The above encryption & decryption of data is implemented using AES encryption technique.](#data-encryption) 
+
+
+### TO GET DONATION DETAILS API
+
+Get Donations Donor Details.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_donations_donor_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|donation_id|String|Donation unique id for beneficiary|
+OR
+|donation_item_id|Integer|Donation item unique id for Donation Item|
+
+
+### Example
+
+##### Request
+
+```
+{
+  "params": {
+    "donation_id": 58,
+    "donation_item_id": 58
+  }
+}
+
+```
+
+##### Encrypted Request
+
+```
+{
+  "params": {
+    "encrypted_data": [
+      "YOUR ENCRYTED BASE 64 DATA",
+      "16 bit IV Key generated during encryption"
+    ]
+  }
+}
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": ["YOUR ENCRYTED BASE 64 DATA",
+        "16 bit IV Key generated during encryption"
+    ]
+}
+```
+
+#### Decrypted Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": ["YOUR ENCRYTED BASE 64 DATA",
+        "16 bit IV Key generated during encryption"
+    ]
+}
+```
+### Remarks
+
+[The above encryption & decryption of data is implemented using AES encryption technique.](#data-encryption) 
 
 # Donation API
 ### TO GET LIST OF DONATIONS API
