@@ -17,6 +17,11 @@
      - [Item Eligibility](#to-get-request-item-eligibility-api)
      - [Rquest Beneficiary](#to-update-request-beneficiary-api)
      - [Update Item Data](#to-update-request-item-data-api)
+- [Contact Person API](#donation-api)
+     - [List Of donation](#to-get-list-of-donations-api)
+     - [Reject Specific donation](#to-reject-specific-donation-api)
+     - [Cancel Specific donation](#to--cancel-specific-donation-api)
+     - [Update donation item data](#to-update-donation-item-data-api)
 - [Donation Module API](#donation-api)
      - [List Of donation](#to-get-list-of-donations-api)
      - [Reject Specific donation](#to-reject-specific-donation-api)
@@ -1420,6 +1425,407 @@ There is no Prerequistes for this API
 ```
 
 ### Remarks
+
+
+### TO UPDATE REQUEST ITEM DATA API
+
+To Update Request Items Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_contact_person_languages
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+### TO UPDATE PERSON LANGUAGE DATA API
+
+Get Contact Person Language Values.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_contact_person_languages
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+### TO UPDATE REQUEST ITEM DATA API
+
+To Update Request Items Data.
+
+### Prerequisites
+Get Request Beneficiary Details.
+
+### HTTP Request
+
+```
+/irrc/get_requests_beneficiary_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+### TO UPDATE REQUEST ITEM DATA API
+
+To Update Request Items Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_contact_person_title
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+### TO GET DONAR DATA API
+
+Get Donations Donor Details.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_donations_donor_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+
+### TO UPDATE REQUEST ITEM DATA API
+
+To Update Request Items Data.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/get_contact_person_title
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
+
+### TO UPDATE CONTACT DATA API
+
+Update Contact Person Details.
+
+### Prerequisites
+There is no Prerequistes for this API
+
+### HTTP Request
+
+```
+/irrc/update_contact_person_data
+```
+
+### Request headers
+
+| Name | Value |
+|:-----|:------|
+|Content-Type|application/json|
+|TOKEN|aqsw3sakskwj32kj3k2j33j2j3k23kj2k3j|
+
+### Request body
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+|request_item_id|Integer|Request item unique id for Item eligibility|
+
+
+### Example
+
+##### Request
+
+```
+{
+    "params": {}
+}
+
+```
+
+##### Response
+
+```
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "meta": {
+            "status": true,
+            "message": "Request Item updated Successfully!"
+        },
+        "data": {}
+    }
+}
+```
+
+### Remarks
+
 
 
 
