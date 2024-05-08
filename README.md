@@ -1957,9 +1957,96 @@ OR
 {
     "jsonrpc": "2.0",
     "id": null,
-    "result": ["YOUR ENCRYTED BASE 64 DATA",
-        "16 bit IV Key generated during encryption"
-    ]
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "beneficiary_info": [
+                {
+                    "contact_id": 133,
+                    "contact_name": "test userrrr",
+                    "contact_phone": "12345678",
+                    "contact_mobile": "87654321",
+                    "contact_email": "admin@example.com",
+                    "contact_street": "",
+                    "contact_street2": "",
+                    "contact_city": "SG",
+                    "contact_zip": "12345",
+                    "contact_country_id": 197,
+                    "contact_country_name": "Singapore",
+                    "contact_title_id": 2,
+                    "contact_title_name": "Miss",
+                    "contact_nationality_id": 197,
+                    "contact_nationality_name": "Singapore",
+                    "tag_ids": [
+                        {
+                            "id": 1,
+                            "name": "Tag 1"
+                        },
+                        {
+                            "id": 4,
+                            "name": "Tag 4"
+                        }
+                    ],
+                    "dob": "22/04/2000",
+                    "marital_status_key": "married",
+                    "marital_status": "Married",
+                    "highest_qualification_key": "degree",
+                    "highest_qualification": "Degree",
+                    "languages_known_line": [
+                        {
+                            "languages_known_line_id": 9,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 10,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 11,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 12,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 13,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        }
+                    ]
+                }
+            ]
+        },
+        "error": {}
+    }
 }
 ```
 
@@ -2042,9 +2129,96 @@ OR
 {
     "jsonrpc": "2.0",
     "id": null,
-    "result": ["YOUR ENCRYTED BASE 64 DATA",
-        "16 bit IV Key generated during encryption"
-    ]
+    "result": {
+        "meta": {
+            "status": true,
+            "message": ""
+        },
+        "data": {
+            "donation_info": [
+                {
+                    "contact_id": 133,
+                    "contact_name": "test userrrr",
+                    "contact_phone": "12345678",
+                    "contact_mobile": "87654321",
+                    "contact_email": "admin@example.com",
+                    "contact_street": "",
+                    "contact_street2": "",
+                    "contact_city": "SG",
+                    "contact_zip": "12345",
+                    "contact_country_id": 197,
+                    "contact_country_name": "Singapore",
+                    "contact_title_id": 2,
+                    "contact_title_name": "Miss",
+                    "contact_nationality_id": 197,
+                    "contact_nationality_name": "Singapore",
+                    "tag_ids": [
+                        {
+                            "id": 1,
+                            "name": "Tag 1"
+                        },
+                        {
+                            "id": 4,
+                            "name": "Tag 4"
+                        }
+                    ],
+                    "dob": "22/04/2000",
+                    "marital_status_key": "married",
+                    "marital_status": "Married",
+                    "highest_qualification_key": "degree",
+                    "highest_qualification": "Degree",
+                    "languages_known_line": [
+                        {
+                            "languages_known_line_id": 9,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 10,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 11,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 12,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        },
+                        {
+                            "languages_known_line_id": 13,
+                            "language_id": 4,
+                            "language_name": "Tamil",
+                            "spoken_key": "basic",
+                            "spoken": "Basic",
+                            "written_key": "basic",
+                            "written": "Basic"
+                        }
+                    ]
+                }
+            ]
+        },
+        "error": {}
+    }
 }
 ```
 ### Remarks
